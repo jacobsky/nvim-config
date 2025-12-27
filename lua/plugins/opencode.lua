@@ -18,15 +18,31 @@ return {
     vim.keymap.set({ "n", "x" }, "<leader>oa", function()
       require("opencode").ask("@this: ", { submit = true })
     end, { desc = "Ask opencode" })
-
-    vim.keymap.set({ "v" }, "<leader>oa", function()
+    vim.keymap.set("v", "<leader>oa", function()
       require("opencode").ask("@seletion: ", { submit = true })
     end, { desc = "Ask opencode about selection" })
 
-    vim.keymap.set({ "n", "x" }, "<leader>ox", function()
+    vim.keymap.set({ "n", "x", "v" }, "<leader>oe", function()
+      require("opencode").prompt("explain @this and it's context", { submit = true })
+    end, { desc = "Ask opencode model to explain this selection" })
+
+    vim.keymap.set("n", "<leader>oi", function()
+      require("opencode").ask("/implfunc @this", { submit = true })
+    end, { desc = "Ask opencode to implement the function your cursor is in" })
+
+    vim.keymap.set({ "v", "x" }, "<leader>oi", function()
+      require("opencode").ask("/implfunc @selection", { submit = true })
+    end, { desc = "Ask opencode to implement this selection" })
+
+    vim.keymap.set({ "n", "x" }, "<leader>os", function()
       require("opencode").select()
     end, { desc = "Execute opencode action…" })
-    vim.keymap.set({ "n", "t" }, "<leader>o.", function()
+
+    vim.keymap.set("v", "<leader>os", function()
+      return require("opencode").operator("@this ")
+    end, { expr = true, desc = "Add range to opencode" })
+
+    vim.keymap.set({ "n", "t" }, "<leader>ot", function()
       require("opencode").toggle()
     end, { desc = "Toggle opencode" })
 

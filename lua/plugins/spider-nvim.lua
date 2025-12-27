@@ -1,6 +1,30 @@
 return {
   "chrisgrieser/nvim-spider",
-  opts = {},
+  lazy = true,
+  opts = {
+    skipInsignificantPunctuation = true,
+    consistentOperatorPending = false,
+    subwordMovement = true,
+    customPatterns = {
+      patterns = {
+        "は",
+        "が",
+        "を",
+        "に",
+        "で",
+        "と",
+        "か",
+        "の",
+        "へ",
+        "から",
+        "まで",
+        "より",
+        "。",
+        "、",
+      },
+      overrideDefault = false,
+    },
+  },
   keys = {
     {
       "w",
