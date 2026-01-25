@@ -19,7 +19,7 @@ return {
       require("opencode").ask("@this: ", { submit = true })
     end, { desc = "Ask opencode" })
     vim.keymap.set("v", "<leader>oa", function()
-      require("opencode").ask("@seletion: ", { submit = true })
+      require("opencode").ask("@this: ", { submit = true })
     end, { desc = "Ask opencode about selection" })
 
     vim.keymap.set({ "n", "x", "v" }, "<leader>oe", function()
@@ -31,7 +31,7 @@ return {
     end, { desc = "Ask opencode to implement the function your cursor is in" })
 
     vim.keymap.set({ "v", "x" }, "<leader>oi", function()
-      require("opencode").ask("/implfunc @selection", { submit = true })
+      require("opencode").ask("/implfunc @this", { submit = true })
     end, { desc = "Ask opencode to implement this selection" })
 
     vim.keymap.set({ "n", "x" }, "<leader>os", function()
