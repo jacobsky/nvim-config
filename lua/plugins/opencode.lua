@@ -26,14 +26,6 @@ return {
       require("opencode").prompt("explain @this and it's context", { submit = true })
     end, { desc = "Ask opencode model to explain this selection" })
 
-    vim.keymap.set("n", "<leader>oi", function()
-      require("opencode").ask("/implfunc @this", { submit = true })
-    end, { desc = "Ask opencode to implement the function your cursor is in" })
-
-    vim.keymap.set({ "v", "x" }, "<leader>oi", function()
-      require("opencode").ask("/implfunc @this", { submit = true })
-    end, { desc = "Ask opencode to implement this selection" })
-
     vim.keymap.set({ "n", "x" }, "<leader>os", function()
       require("opencode").select()
     end, { desc = "Execute opencode action…" })
